@@ -129,7 +129,10 @@ function PlasmicHomepage__RenderFunc(props) {
             </div>
           </Button>
 
-          <Button className={classNames("__wab_instance", sty.button__snEIc)}>
+          <Button
+            className={classNames("__wab_instance", sty.button__snEIc)}
+            link={"/login-or-signup"}
+          >
             {"sign up"}
           </Button>
         </p.Stack>

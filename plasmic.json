@@ -56,19 +56,6 @@
           "plumeType": "button"
         },
         {
-          "id": "-_EzUKxm9F",
-          "name": "LoginOrSignup",
-          "type": "managed",
-          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
-          "renderModuleFilePath": "plasmic/timelyne/PlasmicLoginOrSignup.jsx",
-          "importSpec": {
-            "modulePath": "../pages/login-or-signup.jsx"
-          },
-          "cssFilePath": "plasmic/timelyne/PlasmicLoginOrSignup.module.css",
-          "scheme": "blackbox",
-          "componentType": "page"
-        },
-        {
           "id": "T-Lluoe_WDP",
           "name": "TextInput",
           "type": "managed",
@@ -95,6 +82,19 @@
           "scheme": "blackbox",
           "componentType": "component",
           "plumeType": "checkbox"
+        },
+        {
+          "id": "-_EzUKxm9F",
+          "name": "Signup",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicSignup.jsx",
+          "importSpec": {
+            "modulePath": "../pages/login-or-signup.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicSignup.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [
