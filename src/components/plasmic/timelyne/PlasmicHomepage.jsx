@@ -17,6 +17,7 @@ import {
   deriveRenderOpts,
   ensureGlobalVariants,
 } from "@plasmicapp/react-web"
+import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
 import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import { useScreenVariants as useScreenVariants_2NLjRmJv2LDoH } from "./PlasmicGlobalVariant__Screen" // plasmic-import: 2nLJRmJv2lDoH/globalVariant
 import "@plasmicapp/react-web/lib/plasmic.css"
@@ -60,85 +61,89 @@ function PlasmicHomepage__RenderFunc(props) {
             sty.root
           )}
         >
-          <Button
-            className={classNames("__wab_instance", sty.button__rw3B)}
-            link={"/login"}
-          >
-            <div
-              data-plasmic-name={"text"}
-              data-plasmic-override={overrides.text}
-              className={classNames(
-                projectcss.all,
-                projectcss.__wab_text,
-                sty.text
-              )}
+          <Tilt className={classNames("__wab_instance", sty.tilt___1ReQ2)}>
+            <Button
+              className={classNames("__wab_instance", sty.button__rw3B)}
+              link={"/login"}
             >
-              {hasVariant(globalVariants, "screen", "desktopOnly") ? (
-                <React.Fragment>
-                  <React.Fragment>{""}</React.Fragment>
-                  <h2
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2__lYxio
-                    )}
-                  >
-                    {"login to timelyne"}
-                  </h2>
-                  <React.Fragment>{""}</React.Fragment>
-                </React.Fragment>
-              ) : (
-                <React.Fragment>
-                  <React.Fragment>{""}</React.Fragment>
-                  <h2
-                    className={classNames(
-                      projectcss.all,
-                      projectcss.h2,
-                      projectcss.__wab_text,
-                      sty.h2__xk15M
-                    )}
-                  >
-                    <React.Fragment>
-                      <React.Fragment>{""}</React.Fragment>
-                      <h4
-                        data-plasmic-name={"h4"}
-                        data-plasmic-override={overrides.h4}
-                        className={classNames(
-                          projectcss.all,
-                          projectcss.h4,
-                          projectcss.__wab_text,
-                          sty.h4
-                        )}
-                      >
-                        <React.Fragment>
-                          <React.Fragment>{""}</React.Fragment>
-                          <span
-                            className={
-                              "plasmic_default__all plasmic_default__span"
-                            }
-                            style={{ color: "#0093FD" }}
-                          >
-                            {"login to timelyne"}
-                          </span>
-                          <React.Fragment>{""}</React.Fragment>
-                        </React.Fragment>
-                      </h4>
-                      <React.Fragment>{""}</React.Fragment>
-                    </React.Fragment>
-                  </h2>
-                  <React.Fragment>{""}</React.Fragment>
-                </React.Fragment>
-              )}
-            </div>
-          </Button>
+              <div
+                data-plasmic-name={"text"}
+                data-plasmic-override={overrides.text}
+                className={classNames(
+                  projectcss.all,
+                  projectcss.__wab_text,
+                  sty.text
+                )}
+              >
+                {hasVariant(globalVariants, "screen", "desktopOnly") ? (
+                  <React.Fragment>
+                    <React.Fragment>{""}</React.Fragment>
+                    <h2
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h2,
+                        projectcss.__wab_text,
+                        sty.h2__lYxio
+                      )}
+                    >
+                      {"login to timelyne"}
+                    </h2>
+                    <React.Fragment>{""}</React.Fragment>
+                  </React.Fragment>
+                ) : (
+                  <React.Fragment>
+                    <React.Fragment>{""}</React.Fragment>
+                    <h2
+                      className={classNames(
+                        projectcss.all,
+                        projectcss.h2,
+                        projectcss.__wab_text,
+                        sty.h2__xk15M
+                      )}
+                    >
+                      <React.Fragment>
+                        <React.Fragment>{""}</React.Fragment>
+                        <h4
+                          data-plasmic-name={"h4"}
+                          data-plasmic-override={overrides.h4}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.h4,
+                            projectcss.__wab_text,
+                            sty.h4
+                          )}
+                        >
+                          <React.Fragment>
+                            <React.Fragment>{""}</React.Fragment>
+                            <span
+                              className={
+                                "plasmic_default__all plasmic_default__span"
+                              }
+                              style={{ color: "#0093FD" }}
+                            >
+                              {"login to timelyne"}
+                            </span>
+                            <React.Fragment>{""}</React.Fragment>
+                          </React.Fragment>
+                        </h4>
+                        <React.Fragment>{""}</React.Fragment>
+                      </React.Fragment>
+                    </h2>
+                    <React.Fragment>{""}</React.Fragment>
+                  </React.Fragment>
+                )}
+              </div>
+            </Button>
+          </Tilt>
 
-          <Button
-            className={classNames("__wab_instance", sty.button__snEIc)}
-            link={"/login-or-signup"}
-          >
-            {"sign up"}
-          </Button>
+          <Tilt className={classNames("__wab_instance", sty.tilt__dWXzo)}>
+            <Button
+              className={classNames("__wab_instance", sty.button__snEIc)}
+              link={"/login-or-signup"}
+            >
+              {"sign up"}
+            </Button>
+          </Tilt>
 
           <p.PlasmicImg
             data-plasmic-name={"img"}

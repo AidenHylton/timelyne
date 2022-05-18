@@ -260,12 +260,27 @@
   min-width: 0;
   margin: 0px 0px 0.25em;
 }
+.tilt__zmGzb:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
 .textInput__r047J:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   height: 47px;
-  flex-shrink: 0;
   margin: 0px 0px 1em;
+}
+.svg__dLbOc {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__zh04A {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
 }
 .label__yds6P {
   position: relative;
@@ -288,12 +303,27 @@
   min-width: 0;
   margin: 0px 0px 0.25em;
 }
+.tilt__f5Cy:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
 .textInput__v9VSx:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   height: 47px;
-  flex-shrink: 0;
   margin: 0px 0px 1em;
+}
+.svg___4PmEc {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__yvLr {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
 }
 .label__kKfLv {
   position: relative;
@@ -316,27 +346,45 @@
   min-width: 0;
   margin: 0px 0px 0.25em;
 }
+.tilt__chvUh:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
 .textInput__y6Rwi:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   height: 47px;
-  flex-shrink: 0;
   margin: 0px 0px 1em;
 }
-.textInput__kGxtl:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-  height: 47px;
-  flex-shrink: 0;
-  margin: 0px 0px 1em;
-}
-.svg___61Vwb {
+.svg__eBViu {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__nbIb {
+.svg__t2Xhh {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.tilt__c8Jf:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
+.textInput__kGxtl:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  height: 47px;
+  margin: 0px 0px 1em;
+}
+.svg___1Xwwe {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__fnKLx {
   position: relative;
   object-fit: cover;
   width: 1em;
@@ -377,6 +425,10 @@
   color: #05050599;
   flex-shrink: 0;
 }
+.tilt___8CPq:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
 .text {
   color: #ffffffd9;
   font-size: 16px;
@@ -390,8 +442,8 @@
   line-height: 1.5;
   white-space: pre-wrap;
   user-select: text;
-  text-decoration-line: none;
-  text-overflow: clip;
+  text-decoration-line: none !important;
+  text-overflow: clip !important;
   height: 28px;
 }
 .svg__zgzAx {

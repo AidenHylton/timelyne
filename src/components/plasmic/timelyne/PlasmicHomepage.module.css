@@ -23,22 +23,24 @@
 .root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
   margin-top: 16px;
 }
+.tilt___1ReQ2:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+}
 .button__rw3B:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   height: 152px;
   margin-right: 0px;
   width: 253px;
-  flex-shrink: 0;
 }
 @media (min-width: 768px) {
   .button__rw3B:global(.__wab_instance) {
     width: 408px;
     height: 241px;
-    flex-shrink: 0;
   }
 }
-.svg__aoHa8 {
+.svg__dCijj {
   position: relative;
   object-fit: cover;
   width: 1em;
@@ -47,11 +49,15 @@
 .h2__lYxio {
   color: #03b9ff;
 }
-.svg___2YHkr {
+.svg__grzme {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
+}
+.tilt__dWXzo:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
 }
 .button__snEIc:global(.__wab_instance) {
   max-width: 100%;
@@ -59,15 +65,14 @@
   width: 97px;
   height: 68px;
   margin-bottom: 1px;
-  flex-shrink: 0;
 }
-.svg__ihrkz {
+.svg__kjMz {
   position: relative;
   object-fit: cover;
   width: 1em;
   height: 1em;
 }
-.svg__y5U8Y {
+.svg__cZkt {
   position: relative;
   object-fit: cover;
   width: 1em;

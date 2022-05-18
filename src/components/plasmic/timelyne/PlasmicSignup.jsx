@@ -16,6 +16,7 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
+import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
 import TextInput from "../../TextInput" // plasmic-import: T-Lluoe_WDP/component
 import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import "@plasmicapp/react-web/lib/plasmic.css"
@@ -134,13 +135,18 @@ function PlasmicSignup__RenderFunc(props) {
                       {"Full name"}
                     </label>
 
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__r047J
-                      )}
-                      placeholder={" "}
-                    />
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt__zmGzb)}
+                      gyroscope={true}
+                    >
+                      <TextInput
+                        className={classNames(
+                          "__wab_instance",
+                          sty.textInput__r047J
+                        )}
+                        placeholder={"example:John Doe "}
+                      />
+                    </Tilt>
 
                     <label
                       className={classNames(
@@ -152,13 +158,18 @@ function PlasmicSignup__RenderFunc(props) {
                       {"Email"}
                     </label>
 
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__v9VSx
-                      )}
-                      placeholder={" "}
-                    />
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt__f5Cy)}
+                      gyroscope={true}
+                    >
+                      <TextInput
+                        className={classNames(
+                          "__wab_instance",
+                          sty.textInput__v9VSx
+                        )}
+                        placeholder={"example:words@words.com "}
+                      />
+                    </Tilt>
 
                     <label
                       className={classNames(
@@ -170,21 +181,31 @@ function PlasmicSignup__RenderFunc(props) {
                       {"password"}
                     </label>
 
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__y6Rwi
-                      )}
-                      placeholder={" "}
-                    />
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt__chvUh)}
+                      gyroscope={true}
+                    >
+                      <TextInput
+                        className={classNames(
+                          "__wab_instance",
+                          sty.textInput__y6Rwi
+                        )}
+                        placeholder={"password "}
+                      />
+                    </Tilt>
 
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__kGxtl
-                      )}
-                      placeholder={" "}
-                    />
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt__c8Jf)}
+                      gyroscope={true}
+                    >
+                      <TextInput
+                        className={classNames(
+                          "__wab_instance",
+                          sty.textInput__kGxtl
+                        )}
+                        placeholder={"re enter password "}
+                      />
+                    </Tilt>
 
                     <p.Stack
                       as={p.PlasmicLink}
@@ -206,17 +227,25 @@ function PlasmicSignup__RenderFunc(props) {
                         />
                       ) : null}
 
-                      <div
-                        data-plasmic-name={"text"}
-                        data-plasmic-override={overrides.text}
+                      <Tilt
                         className={classNames(
-                          projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text
+                          "__wab_instance",
+                          sty.tilt___8CPq
                         )}
+                        gyroscope={true}
                       >
-                        {"sign up"}
-                      </div>
+                        <div
+                          data-plasmic-name={"text"}
+                          data-plasmic-override={overrides.text}
+                          className={classNames(
+                            projectcss.all,
+                            projectcss.__wab_text,
+                            sty.text
+                          )}
+                        >
+                          {"sign up"}
+                        </div>
+                      </Tilt>
 
                       {false ? (
                         <Icon3Icon

@@ -16,6 +16,7 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
+import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
 import TextInput from "../../TextInput" // plasmic-import: T-Lluoe_WDP/component
 import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import "@plasmicapp/react-web/lib/plasmic.css"
@@ -103,13 +104,19 @@ function PlasmicLogin__RenderFunc(props) {
                       {"Email"}
                     </label>
 
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__cFHn
-                      )}
-                      placeholder={" "}
-                    />
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt___4Es7H)}
+                      gyroscope={true}
+                    >
+                      <TextInput
+                        className={classNames(
+                          "__wab_instance",
+                          sty.textInput__cFHn
+                        )}
+                        placeholder={"example:words@words.com "}
+                        required={true}
+                      />
+                    </Tilt>
 
                     <label
                       className={classNames(
@@ -121,56 +128,69 @@ function PlasmicLogin__RenderFunc(props) {
                       {"Password"}
                     </label>
 
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__rt1Uv
-                      )}
-                      placeholder={" "}
-                    />
-
-                    <p.Stack
-                      as={p.PlasmicLink}
-                      data-plasmic-name={"link"}
-                      data-plasmic-override={overrides.link}
-                      hasGap={true}
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.a,
-                        sty.link
-                      )}
-                      component={Link}
-                      platform={"gatsby"}
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt__bnfR)}
+                      gyroscope={true}
                     >
-                      {false ? (
-                        <Icon3Icon
-                          className={classNames(projectcss.all, sty.svg__phHo)}
-                          role={"img"}
-                        />
-                      ) : null}
+                      <TextInput
+                        className={classNames(
+                          "__wab_instance",
+                          sty.textInput__rt1Uv
+                        )}
+                        placeholder={"example:words123 "}
+                        required={true}
+                      />
+                    </Tilt>
 
-                      <div
-                        data-plasmic-name={"text"}
-                        data-plasmic-override={overrides.text}
+                    <Tilt
+                      className={classNames("__wab_instance", sty.tilt__l4WkN)}
+                    >
+                      <p.Stack
+                        as={p.PlasmicLink}
+                        data-plasmic-name={"link"}
+                        data-plasmic-override={overrides.link}
+                        hasGap={true}
                         className={classNames(
                           projectcss.all,
-                          projectcss.__wab_text,
-                          sty.text
+                          projectcss.a,
+                          sty.link
                         )}
+                        component={Link}
+                        platform={"gatsby"}
                       >
-                        {"login"}
-                      </div>
+                        {false ? (
+                          <Icon3Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg__phHo
+                            )}
+                            role={"img"}
+                          />
+                        ) : null}
 
-                      {false ? (
-                        <Icon3Icon
+                        <div
+                          data-plasmic-name={"text"}
+                          data-plasmic-override={overrides.text}
                           className={classNames(
                             projectcss.all,
-                            sty.svg___6ADjv
+                            projectcss.__wab_text,
+                            sty.text
                           )}
-                          role={"img"}
-                        />
-                      ) : null}
-                    </p.Stack>
+                        >
+                          {"login"}
+                        </div>
+
+                        {false ? (
+                          <Icon3Icon
+                            className={classNames(
+                              projectcss.all,
+                              sty.svg___6ADjv
+                            )}
+                            role={"img"}
+                          />
+                        ) : null}
+                      </p.Stack>
+                    </Tilt>
 
                     <Button
                       data-plasmic-name={"button"}

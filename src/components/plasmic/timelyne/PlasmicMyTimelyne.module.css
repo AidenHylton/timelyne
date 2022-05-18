@@ -1,0 +1,51 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 0;
+  min-height: 0;
+}
+.tilt:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  height: 53px;
+  width: 74px;
+  flex-shrink: 0;
+  margin: 0px 265px 0px 3px;
+}
+.button:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  height: 50px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-right: 302px;
+  width: 89px;
+  display: flex;
+}
+.svg__u0CiO {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 68px;
+  height: 50px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+}
+.svg__jr4Fb {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}

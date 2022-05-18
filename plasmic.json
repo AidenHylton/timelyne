@@ -108,6 +108,46 @@
           "cssFilePath": "plasmic/timelyne/PlasmicLogin.module.css",
           "scheme": "blackbox",
           "componentType": "page"
+        },
+        {
+          "id": "sZ5tR8uREH",
+          "name": "MyTimelyne",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicMyTimelyne.jsx",
+          "importSpec": {
+            "modulePath": "../pages/my-timelyne.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicMyTimelyne.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "aMBO0vTjkqh",
+          "name": "Switch",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicSwitch.jsx",
+          "importSpec": {
+            "modulePath": "Switch.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicSwitch.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "switch"
+        },
+        {
+          "id": "5qSewSMVf0",
+          "name": "Settings",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicSettings.jsx",
+          "importSpec": {
+            "modulePath": "../pages/settings.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicSettings.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [
@@ -160,6 +200,16 @@
           "id": "yWQXGpU1eP",
           "name": "ReshotIconEyeA89Qnhvpk2SvgIcon",
           "moduleFilePath": "plasmic/timelyne/icons/PlasmicIcon__ReshotIconEyeA89Qnhvpk2Svg.jsx"
+        },
+        {
+          "id": "W5Fg7djZ3c",
+          "name": "ReshotIconSettingsWryhdvpgjQsvgIcon",
+          "moduleFilePath": "plasmic/timelyne/icons/PlasmicIcon__ReshotIconSettingsWryhdvpgjQsvg.jsx"
+        },
+        {
+          "id": "6f_pGPPg5-",
+          "name": "ReshotIconLockOpenVk8Lupj3BDsvgIcon",
+          "moduleFilePath": "plasmic/timelyne/icons/PlasmicIcon__ReshotIconLockOpenVk8Lupj3BDsvg.jsx"
         }
       ],
       "images": [
@@ -200,8 +250,70 @@
         }
       ],
       "indirect": false,
-      "globalContextsFilePath": "",
+      "globalContextsFilePath": "plasmic/timelyne/PlasmicGlobalContextsProvider.jsx",
       "codeComponents": []
+    },
+    {
+      "projectId": "58GpZjZCWTaJ8AUhpCwt2K",
+      "projectApiToken": "DIkcfhBwjMCJSjcxfBkMuy4NImyytq5EWylxVcpS9t9EpdhnPQuBgBGxmk00AB1itMFa1KXTxOKnrjN2PN9nlA",
+      "projectName": "react-awesome-reveal",
+      "version": "2.1.2",
+      "cssFilePath": "plasmic/react_awesome_reveal/plasmic_react_awesome_reveal.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "R6s1FdhksG",
+          "name": "Reveal",
+          "componentImportPath": "@plasmicpkgs/react-awesome-reveal"
+        }
+      ]
+    },
+    {
+      "projectId": "84wxoth5npGrp6RRXPL88z",
+      "projectApiToken": "hOzXksPB8gkTrKnfJeV9VDS8m8dnIXQn1xxDQZ5MHxv9orQY6JNgwmk6aDMZPLkocV2KtD9gNJXv5JwIbbzIQ",
+      "projectName": "react-scroll-parallax-global",
+      "version": "4.0.1",
+      "cssFilePath": "plasmic/react_scroll_parallax_global/plasmic_react_scroll_parallax_global.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "plasmic/react_scroll_parallax_global/PlasmicGlobalContextsProvider.jsx",
+      "codeComponents": [
+        {
+          "id": "bozP4lLlAZ",
+          "name": "ParallaxWrapper",
+          "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
+        },
+        {
+          "id": "L6MfauX2Cw",
+          "name": "ParallaxProviderWrapper",
+          "componentImportPath": "@plasmicpkgs/react-scroll-parallax"
+        }
+      ]
+    },
+    {
+      "projectId": "szjgMQpPpxhmkjnaBvZQJG",
+      "projectApiToken": "xBIsrWHdWZ9kVgFEGUt29LOZPWfm0XidYqRHqPhQXsEjDHevjIbp44nEYMIZ46YOoxrN8anfXjreTkDtFjTA",
+      "projectName": "react-parallax-tilt",
+      "version": "1.0.4",
+      "cssFilePath": "plasmic/react_parallax_tilt/plasmic_react_parallax_tilt.module.css",
+      "components": [],
+      "icons": [],
+      "images": [],
+      "indirect": true,
+      "globalContextsFilePath": "",
+      "codeComponents": [
+        {
+          "id": "PfY466VIuq",
+          "name": "Tilt",
+          "componentImportPath": "@plasmicpkgs/react-parallax-tilt"
+        }
+      ]
     }
   ],
   "globalVariants": {
@@ -211,6 +323,12 @@
         "name": "Screen",
         "projectId": "6vWNYa83fUnb1xHLwQwj6w",
         "contextFilePath": "plasmic/timelyne/PlasmicGlobalVariant__Screen.jsx"
+      },
+      {
+        "id": "ckLLdnw4lO",
+        "name": "Screen",
+        "projectId": "szjgMQpPpxhmkjnaBvZQJG",
+        "contextFilePath": "plasmic/react_parallax_tilt/PlasmicGlobalVariant__Screen.jsx"
       }
     ]
   },
