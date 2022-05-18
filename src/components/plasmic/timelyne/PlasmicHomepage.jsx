@@ -55,14 +55,11 @@ function PlasmicHomepage__RenderFunc(props) {
             projectcss.root_reset,
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
+            projectcss.plasmic_tokens,
             sty.root
           )}
         >
-          <Button
-            data-plasmic-name={"button"}
-            data-plasmic-override={overrides.button}
-            className={classNames("__wab_instance", sty.button)}
-          >
+          <Button className={classNames("__wab_instance", sty.button__rw3B)}>
             <div
               data-plasmic-name={"text"}
               data-plasmic-override={overrides.text}
@@ -131,6 +128,10 @@ function PlasmicHomepage__RenderFunc(props) {
               )}
             </div>
           </Button>
+
+          <Button className={classNames("__wab_instance", sty.button__snEIc)}>
+            {"sign up"}
+          </Button>
         </p.Stack>
       </div>
     </React.Fragment>
@@ -138,8 +139,7 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "button", "text", "h4"],
-  button: ["button", "text", "h4"],
+  root: ["root", "text", "h4"],
   text: ["text", "h4"],
   h4: ["h4"],
 }
@@ -173,7 +173,6 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    button: makeNodeComponent("button"),
     text: makeNodeComponent("text"),
     h4: makeNodeComponent("h4"),
     // Metadata about props expected for PlasmicHomepage
