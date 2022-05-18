@@ -22,6 +22,7 @@ import { useScreenVariants as useScreenVariants_2NLjRmJv2LDoH } from "./PlasmicG
 import "@plasmicapp/react-web/lib/plasmic.css"
 import * as projectcss from "./plasmic_timelyne.module.css" // plasmic-import: 6vWNYa83fUnb1xHLwQwj6w/projectcss
 import * as sty from "./PlasmicHomepage.module.css" // plasmic-import: X73VYgl5Ildg/css
+import untitledDesignjpgD3DsclcwO from "./images/untitledDesignjpg.jpeg" // plasmic-import: D3DsclcwO/picture
 
 export const PlasmicHomepage__VariantProps = new Array()
 
@@ -59,7 +60,10 @@ function PlasmicHomepage__RenderFunc(props) {
             sty.root
           )}
         >
-          <Button className={classNames("__wab_instance", sty.button__rw3B)}>
+          <Button
+            className={classNames("__wab_instance", sty.button__rw3B)}
+            link={"/login"}
+          >
             <div
               data-plasmic-name={"text"}
               data-plasmic-override={overrides.text}
@@ -135,6 +139,26 @@ function PlasmicHomepage__RenderFunc(props) {
           >
             {"sign up"}
           </Button>
+
+          <p.PlasmicImg
+            data-plasmic-name={"img"}
+            data-plasmic-override={overrides.img}
+            alt={""}
+            className={classNames(sty.img)}
+            displayHeight={"auto"}
+            displayMaxHeight={"none"}
+            displayMaxWidth={"100%"}
+            displayMinHeight={"0"}
+            displayMinWidth={"0"}
+            displayWidth={"84px"}
+            loading={"lazy"}
+            src={{
+              src: untitledDesignjpgD3DsclcwO,
+              fullWidth: 500,
+              fullHeight: 500,
+              aspectRatio: undefined,
+            }}
+          />
         </p.Stack>
       </div>
     </React.Fragment>
@@ -142,9 +166,10 @@ function PlasmicHomepage__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "text", "h4"],
+  root: ["root", "text", "h4", "img"],
   text: ["text", "h4"],
   h4: ["h4"],
+  img: ["img"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -178,6 +203,7 @@ export const PlasmicHomepage = Object.assign(
     // Helper components rendering sub-elements
     text: makeNodeComponent("text"),
     h4: makeNodeComponent("h4"),
+    img: makeNodeComponent("img"),
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,

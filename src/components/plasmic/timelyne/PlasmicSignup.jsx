@@ -17,6 +17,7 @@ import {
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
 import TextInput from "../../TextInput" // plasmic-import: T-Lluoe_WDP/component
+import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import "@plasmicapp/react-web/lib/plasmic.css"
 import * as projectcss from "./plasmic_timelyne.module.css" // plasmic-import: 6vWNYa83fUnb1xHLwQwj6w/projectcss
 import * as sty from "./PlasmicSignup.module.css" // plasmic-import: -_EzUKxm9F/css
@@ -224,6 +225,15 @@ function PlasmicSignup__RenderFunc(props) {
                         />
                       ) : null}
                     </p.Stack>
+
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      link={"/"}
+                    >
+                      {"cancel"}
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -247,6 +257,7 @@ const PlasmicDescendants = {
     "h2",
     "link",
     "text",
+    "button",
   ],
 
   mainSection: [
@@ -259,6 +270,7 @@ const PlasmicDescendants = {
     "h2",
     "link",
     "text",
+    "button",
   ],
 
   mainSection2: [
@@ -270,15 +282,27 @@ const PlasmicDescendants = {
     "h2",
     "link",
     "text",
+    "button",
   ],
 
-  columns: ["columns", "column", "container4", "img", "h2", "link", "text"],
-  column: ["column", "container4", "img", "h2", "link", "text"],
-  container4: ["container4", "img", "h2", "link", "text"],
+  columns: [
+    "columns",
+    "column",
+    "container4",
+    "img",
+    "h2",
+    "link",
+    "text",
+    "button",
+  ],
+
+  column: ["column", "container4", "img", "h2", "link", "text", "button"],
+  container4: ["container4", "img", "h2", "link", "text", "button"],
   img: ["img"],
   h2: ["h2"],
   link: ["link", "text"],
   text: ["text"],
+  button: ["button"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -319,6 +343,7 @@ export const PlasmicSignup = Object.assign(
     h2: makeNodeComponent("h2"),
     link: makeNodeComponent("link"),
     text: makeNodeComponent("text"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicSignup
     internalVariantProps: PlasmicSignup__VariantProps,
     internalArgProps: PlasmicSignup__ArgProps,

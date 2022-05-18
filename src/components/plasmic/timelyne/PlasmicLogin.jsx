@@ -17,6 +17,7 @@ import {
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
 import TextInput from "../../TextInput" // plasmic-import: T-Lluoe_WDP/component
+import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import "@plasmicapp/react-web/lib/plasmic.css"
 import * as projectcss from "./plasmic_timelyne.module.css" // plasmic-import: 6vWNYa83fUnb1xHLwQwj6w/projectcss
 import * as sty from "./PlasmicLogin.module.css" // plasmic-import: AKtXDN2Ajt/css
@@ -89,7 +90,7 @@ function PlasmicLogin__RenderFunc(props) {
                         sty.h2
                       )}
                     >
-                      {"Register"}
+                      {"login"}
                     </h2>
 
                     <label
@@ -99,7 +100,7 @@ function PlasmicLogin__RenderFunc(props) {
                         sty.label__x7J2
                       )}
                     >
-                      {"Name"}
+                      {"Email"}
                     </label>
 
                     <TextInput
@@ -117,31 +118,13 @@ function PlasmicLogin__RenderFunc(props) {
                         sty.label__xz6Cj
                       )}
                     >
-                      {"Email"}
+                      {"Password"}
                     </label>
 
                     <TextInput
                       className={classNames(
                         "__wab_instance",
                         sty.textInput__rt1Uv
-                      )}
-                      placeholder={" "}
-                    />
-
-                    <label
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.__wab_text,
-                        sty.label__rlk6N
-                      )}
-                    >
-                      {"Phone"}
-                    </label>
-
-                    <TextInput
-                      className={classNames(
-                        "__wab_instance",
-                        sty.textInput__uWlxo
                       )}
                       placeholder={" "}
                     />
@@ -175,7 +158,7 @@ function PlasmicLogin__RenderFunc(props) {
                           sty.text
                         )}
                       >
-                        {"Send Now"}
+                        {"login"}
                       </div>
 
                       {false ? (
@@ -188,6 +171,15 @@ function PlasmicLogin__RenderFunc(props) {
                         />
                       ) : null}
                     </p.Stack>
+
+                    <Button
+                      data-plasmic-name={"button"}
+                      data-plasmic-override={overrides.button}
+                      className={classNames("__wab_instance", sty.button)}
+                      link={"/"}
+                    >
+                      {"cancel"}
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -210,6 +202,7 @@ const PlasmicDescendants = {
     "h2",
     "link",
     "text",
+    "button",
   ],
 
   mainSection: [
@@ -221,6 +214,7 @@ const PlasmicDescendants = {
     "h2",
     "link",
     "text",
+    "button",
   ],
 
   mainSection2: [
@@ -231,14 +225,16 @@ const PlasmicDescendants = {
     "h2",
     "link",
     "text",
+    "button",
   ],
 
-  columns: ["columns", "column", "container4", "h2", "link", "text"],
-  column: ["column", "container4", "h2", "link", "text"],
-  container4: ["container4", "h2", "link", "text"],
+  columns: ["columns", "column", "container4", "h2", "link", "text", "button"],
+  column: ["column", "container4", "h2", "link", "text", "button"],
+  container4: ["container4", "h2", "link", "text", "button"],
   h2: ["h2"],
   link: ["link", "text"],
   text: ["text"],
+  button: ["button"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -278,6 +274,7 @@ export const PlasmicLogin = Object.assign(
     h2: makeNodeComponent("h2"),
     link: makeNodeComponent("link"),
     text: makeNodeComponent("text"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
     internalArgProps: PlasmicLogin__ArgProps,

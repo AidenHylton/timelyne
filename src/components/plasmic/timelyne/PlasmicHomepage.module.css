@@ -73,3 +73,19 @@
   width: 1em;
   height: 1em;
 }
+.img {
+  position: relative;
+  object-fit: cover;
+  max-width: 100%;
+  width: 84px;
+  margin-bottom: 0px;
+  margin-top: calc(0px + 16px) !important;
+  margin-left: 238px;
+  margin-right: 0px;
+}
+.img > picture > img {
+  object-fit: cover;
+}
+.img > .__wab_img-spacer > img {
+  object-fit: cover;
+}
