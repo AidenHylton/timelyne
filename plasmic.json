@@ -95,6 +95,19 @@
           "cssFilePath": "plasmic/timelyne/PlasmicSignup.module.css",
           "scheme": "blackbox",
           "componentType": "page"
+        },
+        {
+          "id": "AKtXDN2Ajt",
+          "name": "Login",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicLogin.jsx",
+          "importSpec": {
+            "modulePath": "../pages/login.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicLogin.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [
