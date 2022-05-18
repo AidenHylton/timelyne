@@ -1,0 +1,93 @@
+{
+  "platform": "gatsby",
+  "code": {
+    "lang": "js",
+    "scheme": "blackbox",
+    "reactRuntime": "classic"
+  },
+  "style": {
+    "scheme": "css-modules",
+    "defaultStyleCssFilePath": "plasmic/plasmic__default_style.css"
+  },
+  "images": {
+    "scheme": "files",
+    "publicDir": "../../static",
+    "publicUrlPrefix": "/"
+  },
+  "tokens": {
+    "scheme": "theo",
+    "tokensFilePath": "plasmic-tokens.theo.json"
+  },
+  "srcDir": "src/components",
+  "defaultPlasmicDir": "./plasmic",
+  "projects": [
+    {
+      "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+      "projectApiToken": "nQuDKr8MFuw0201XyR0rGrNHGA3uzmceY33b9S4F3yUKDAmzeUOjRlDr0WikMgcTmlcaWDfPdsnv76y1X6Q",
+      "projectName": "Timelyne",
+      "version": "latest",
+      "cssFilePath": "plasmic/timelyne/plasmic_timelyne.module.css",
+      "components": [
+        {
+          "id": "X73VYgl5Ildg",
+          "name": "Homepage",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicHomepage.jsx",
+          "importSpec": {
+            "modulePath": "../pages/index.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicHomepage.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
+        },
+        {
+          "id": "Rnk6lkY_vgm",
+          "name": "Button",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicButton.jsx",
+          "importSpec": {
+            "modulePath": "Button.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicButton.module.css",
+          "scheme": "blackbox",
+          "componentType": "component",
+          "plumeType": "button"
+        }
+      ],
+      "icons": [
+        {
+          "id": "jnS_z8IIBmf",
+          "name": "ChecksvgIcon",
+          "moduleFilePath": "plasmic/timelyne/icons/PlasmicIcon__Checksvg.jsx"
+        },
+        {
+          "id": "gzz4LHJ1nAh",
+          "name": "IconIcon",
+          "moduleFilePath": "plasmic/timelyne/icons/PlasmicIcon__Icon.jsx"
+        }
+      ],
+      "images": [],
+      "indirect": false,
+      "globalContextsFilePath": "",
+      "codeComponents": []
+    }
+  ],
+  "globalVariants": {
+    "variantGroups": [
+      {
+        "id": "2nLJRmJv2lDoH",
+        "name": "Screen",
+        "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+        "contextFilePath": "plasmic/timelyne/PlasmicGlobalVariant__Screen.jsx"
+      }
+    ]
+  },
+  "wrapPagesWithGlobalContexts": true,
+  "gatsbyConfig": {
+    "pagesDir": "../pages"
+  },
+  "cliVersion": "0.1.178",
+  "$schema": "https://unpkg.com/@plasmicapp/cli@0.1.178/dist/plasmic.schema.json"
+}
