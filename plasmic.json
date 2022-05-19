@@ -148,6 +148,19 @@
           "cssFilePath": "plasmic/timelyne/PlasmicSettings.module.css",
           "scheme": "blackbox",
           "componentType": "page"
+        },
+        {
+          "id": "Cw2jS9gr3z",
+          "name": "SourceCodeView",
+          "type": "managed",
+          "projectId": "6vWNYa83fUnb1xHLwQwj6w",
+          "renderModuleFilePath": "plasmic/timelyne/PlasmicSourceCodeView.jsx",
+          "importSpec": {
+            "modulePath": "../pages/source-code-view.jsx"
+          },
+          "cssFilePath": "plasmic/timelyne/PlasmicSourceCodeView.module.css",
+          "scheme": "blackbox",
+          "componentType": "page"
         }
       ],
       "icons": [

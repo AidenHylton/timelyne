@@ -164,6 +164,16 @@ function PlasmicHomepage__RenderFunc(props) {
               aspectRatio: undefined,
             }}
           />
+
+          <Tilt
+            className={classNames("__wab_instance", sty.tilt___3Vpfy)}
+            glareEnable={true}
+            gyroscope={true}
+          >
+            <Button className={classNames("__wab_instance", sty.button__svX2S)}>
+              {"source"}
+            </Button>
+          </Tilt>
         </p.Stack>
       </div>
     </React.Fragment>
