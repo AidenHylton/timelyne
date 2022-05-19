@@ -19,14 +19,12 @@
   padding-bottom: 0px;
   min-width: 0;
 }
-.tilt:global(.__wab_instance) {
-  max-width: 100%;
-  position: relative;
-}
 .button:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
   margin-top: 190px;
+  width: 114px;
+  margin-left: 0px;
 }
 .svg__wtme5 {
   position: relative;

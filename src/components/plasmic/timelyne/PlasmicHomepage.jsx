@@ -165,18 +165,12 @@ function PlasmicHomepage__RenderFunc(props) {
             }}
           />
 
-          <Tilt
-            className={classNames("__wab_instance", sty.tilt___3Vpfy)}
-            glareEnable={true}
-            gyroscope={true}
+          <Button
+            className={classNames("__wab_instance", sty.button__svX2S)}
+            link={"/source-code-view"}
           >
-            <Button
-              className={classNames("__wab_instance", sty.button__svX2S)}
-              link={"/source-code-view"}
-            >
-              {"source"}
-            </Button>
-          </Tilt>
+            {"source"}
+          </Button>
         </p.Stack>
       </div>
     </React.Fragment>
