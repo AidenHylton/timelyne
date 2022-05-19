@@ -145,6 +145,13 @@ function PlasmicHomepage__RenderFunc(props) {
             </Button>
           </Tilt>
 
+          <Button
+            className={classNames("__wab_instance", sty.button__svX2S)}
+            link={"/source-code-view"}
+          >
+            {"source"}
+          </Button>
+
           <p.PlasmicImg
             data-plasmic-name={"img"}
             data-plasmic-override={overrides.img}
@@ -164,13 +171,6 @@ function PlasmicHomepage__RenderFunc(props) {
               aspectRatio: undefined,
             }}
           />
-
-          <Button
-            className={classNames("__wab_instance", sty.button__svX2S)}
-            link={"/source-code-view"}
-          >
-            {"source"}
-          </Button>
         </p.Stack>
       </div>
     </React.Fragment>
