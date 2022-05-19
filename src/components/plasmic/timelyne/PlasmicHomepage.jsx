@@ -170,7 +170,10 @@ function PlasmicHomepage__RenderFunc(props) {
             glareEnable={true}
             gyroscope={true}
           >
-            <Button className={classNames("__wab_instance", sty.button__svX2S)}>
+            <Button
+              className={classNames("__wab_instance", sty.button__svX2S)}
+              link={"/source-code-view"}
+            >
               {"source"}
             </Button>
           </Tilt>
