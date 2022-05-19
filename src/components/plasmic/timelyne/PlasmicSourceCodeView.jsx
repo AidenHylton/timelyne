@@ -14,6 +14,8 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
+import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
+import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import "@plasmicapp/react-web/lib/plasmic.css"
 import * as projectcss from "./plasmic_timelyne.module.css" // plasmic-import: 6vWNYa83fUnb1xHLwQwj6w/projectcss
 import * as sty from "./PlasmicSourceCodeView.module.css" // plasmic-import: Cw2jS9gr3z/css
@@ -47,14 +49,48 @@ function PlasmicSourceCodeView__RenderFunc(props) {
             projectcss.plasmic_tokens,
             sty.root
           )}
-        />
+        >
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {"check out the source code of this app"}
+          </div>
+
+          <Tilt
+            data-plasmic-name={"tilt"}
+            data-plasmic-override={overrides.tilt}
+            className={classNames("__wab_instance", sty.tilt)}
+            glareEnable={true}
+            gyroscope={true}
+          >
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={"softGreen"}
+              link={"https://github.com/AidenHylton/timelyne"}
+              showEndIcon={true}
+            >
+              {"view code"}
+            </Button>
+          </Tilt>
+        </div>
       </div>
     </React.Fragment>
   )
 }
 
 const PlasmicDescendants = {
-  root: ["root"],
+  root: ["root", "text", "tilt", "button"],
+  text: ["text"],
+  tilt: ["tilt", "button"],
+  button: ["button"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -86,6 +122,9 @@ export const PlasmicSourceCodeView = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
+    text: makeNodeComponent("text"),
+    tilt: makeNodeComponent("tilt"),
+    button: makeNodeComponent("button"),
     // Metadata about props expected for PlasmicSourceCodeView
     internalVariantProps: PlasmicSourceCodeView__VariantProps,
     internalArgProps: PlasmicSourceCodeView__ArgProps,
