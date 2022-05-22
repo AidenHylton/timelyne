@@ -468,7 +468,8 @@
           "name": "Tabs",
           "componentImportPath": "@plasmicpkgs/antd"
         }
-      ]
+      ],
+      "jsBundleThemes": []
     }
   ],
   "globalVariants": {
