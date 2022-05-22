@@ -105,20 +105,21 @@ function PlasmicSwitch__RenderFunc(props) {
               "isDisabled"
             ),
           })}
-        />
-
-        <div
-          data-plasmic-name={"thumb"}
-          data-plasmic-override={overrides.thumb}
-          className={classNames(projectcss.all, sty.thumb, {
-            [sty.thumb___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-            [sty.thumbisChecked]: hasVariant(
-              variants,
-              "isChecked",
-              "isChecked"
-            ),
-          })}
-        />
+        >
+          <div
+            data-plasmic-name={"thumb"}
+            data-plasmic-override={overrides.thumb}
+            className={classNames(projectcss.all, sty.thumb, {
+              [sty.thumb___focusVisibleWithin]:
+                triggers.focusVisibleWithin_root,
+              [sty.thumbisChecked]: hasVariant(
+                variants,
+                "isChecked",
+                "isChecked"
+              ),
+            })}
+          />
+        </div>
       </div>
 
       {(hasVariant(variants, "noLabel", "noLabel") ? false : true) ? (
@@ -185,7 +186,7 @@ function useBehavior(props, ref) {
 const PlasmicDescendants = {
   root: ["root", "toggle", "track", "thumb", "labelContainer"],
   toggle: ["toggle", "track", "thumb"],
-  track: ["track"],
+  track: ["track", "thumb"],
   thumb: ["thumb"],
   labelContainer: ["labelContainer"],
 }

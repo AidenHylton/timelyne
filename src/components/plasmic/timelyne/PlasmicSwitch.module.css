@@ -65,13 +65,13 @@
 }
 .thumb {
   display: block;
-  position: absolute;
+  position: relative;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
-  left: 4px;
-  top: 8px;
-  width: 16px;
+  left: auto;
+  top: auto;
+  width: 144px;
   height: 16px;
   transition-property: all;
   transition-duration: 0.2s;
@@ -81,18 +81,25 @@
   border: 1px solid #dbdbd7;
 }
 .thumbisChecked {
-  left: 20px;
+  left: auto;
   right: auto;
+  top: auto;
   border-style: none;
 }
 .root:hover .thumb {
   background: #f9f9f9;
+  left: auto;
+  top: auto;
   border-color: #c8c7c1;
 }
 .root:focus-within .thumb {
+  left: auto;
+  top: auto;
   outline: none;
 }
 .root .thumb___focusVisibleWithin {
+  left: auto;
+  top: auto;
   outline: none;
 }
 .labelContainer {

@@ -47,7 +47,7 @@ function PlasmicTextInput__RenderFunc(props) {
   const $props = props.args
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
-      isTextInput: true,
+      isTextInput: false,
     })
 
   const triggers = {
@@ -138,39 +138,6 @@ function PlasmicTextInput__RenderFunc(props) {
           })}
         </div>
       ) : null}
-
-      <input
-        data-plasmic-name={"input"}
-        data-plasmic-override={overrides.input}
-        aria-label={args["aria-label"]}
-        aria-labelledby={args["aria-labelledby"]}
-        className={classNames(projectcss.all, projectcss.input, sty.input, {
-          [sty.input___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-          [sty.inputcolor_dark]: hasVariant(variants, "color", "dark"),
-          [sty.inputisDisabled]: hasVariant(
-            variants,
-            "isDisabled",
-            "isDisabled"
-          ),
-
-          [sty.inputshowStartIcon]: hasVariant(
-            variants,
-            "showStartIcon",
-            "showStartIcon"
-          ),
-        })}
-        disabled={
-          hasVariant(variants, "isDisabled", "isDisabled") ? true : undefined
-        }
-        name={args.name}
-        placeholder={
-          args.placeholder !== undefined ? args.placeholder : "Enter something…"
-        }
-        required={args.required}
-        type={"text"}
-        value={args.value}
-      />
-
       {(hasVariant(variants, "showEndIcon", "showEndIcon") ? true : true) ? (
         <div
           data-plasmic-name={"endIconContainer"}
@@ -241,9 +208,8 @@ function useBehavior(props, ref) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "startIconContainer", "input", "endIconContainer"],
+  root: ["root", "startIconContainer", "endIconContainer"],
   startIconContainer: ["startIconContainer"],
-  input: ["input"],
   endIconContainer: ["endIconContainer"],
 }
 
@@ -277,7 +243,6 @@ export const PlasmicTextInput = Object.assign(
   {
     // Helper components rendering sub-elements
     startIconContainer: makeNodeComponent("startIconContainer"),
-    input: makeNodeComponent("input"),
     endIconContainer: makeNodeComponent("endIconContainer"),
     // Metadata about props expected for PlasmicTextInput
     internalVariantProps: PlasmicTextInput__VariantProps,

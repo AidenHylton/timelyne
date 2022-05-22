@@ -19,25 +19,76 @@
   flex-shrink: 0;
   margin: 0px 276px 0px 0px;
 }
-.tilt__u3Ori:global(.__wab_instance) {
+.tilt__p7BdS:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-._switch__tRnj6:global(.__wab_instance) {
+.button__uvac:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 192px;
   margin-left: 0px;
-  margin-right: 160px;
+  width: 85px;
+  margin-right: 254px;
 }
-.tilt__v2Rrm:global(.__wab_instance) {
+.svg__yNsUf {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__kUx8Y {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.tilt__sff3E:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
 }
-._switch__kqCPd:global(.__wab_instance) {
+.button___7L2Ux:global(.__wab_instance) {
   max-width: 100%;
   position: relative;
-  width: 208px;
-  margin-left: 0px;
-  margin-right: 145px;
+  width: 79px;
+  margin-right: 251px;
+  margin-top: 101px;
+  margin-bottom: 0px;
+  height: 50px;
+}
+.svg__c0Itn {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__fdU3 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.button__ionLn:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  margin-top: 134px;
+  margin-bottom: 0px;
+  height: 50px;
+  flex-shrink: 0;
+}
+.svg___0T1H4 {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.svg__aqwrM {
+  position: relative;
+  object-fit: cover;
+  width: 1em;
+  height: 1em;
+}
+.tilt___9Au5D:global(.__wab_instance) {
+  max-width: 100%;
+  position: relative;
+  margin-top: 427px;
 }

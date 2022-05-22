@@ -15,7 +15,7 @@ import {
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
 import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
-import Switch from "../../Switch" // plasmic-import: aMBO0vTjkqh/component
+import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
 import "@plasmicapp/react-web/lib/plasmic.css"
 import * as projectcss from "./plasmic_timelyne.module.css" // plasmic-import: 6vWNYa83fUnb1xHLwQwj6w/projectcss
 import * as sty from "./PlasmicSettings.module.css" // plasmic-import: 5qSewSMVf0/css
@@ -58,20 +58,46 @@ function PlasmicSettings__RenderFunc(props) {
             role={"img"}
           />
 
-          <Tilt className={classNames("__wab_instance", sty.tilt__u3Ori)}>
-            <Switch
-              className={classNames("__wab_instance", sty._switch__tRnj6)}
+          <Tilt
+            className={classNames("__wab_instance", sty.tilt__p7BdS)}
+            gyroscope={true}
+          >
+            <Button
+              className={classNames("__wab_instance", sty.button__uvac)}
+              color={"red"}
+              link={"/my-timelyne"}
             >
-              {"private timelyne"}
-            </Switch>
+              {"back"}
+            </Button>
           </Tilt>
 
-          <Tilt className={classNames("__wab_instance", sty.tilt__v2Rrm)}>
-            <Switch
-              className={classNames("__wab_instance", sty._switch__kqCPd)}
+          <Tilt
+            className={classNames("__wab_instance", sty.tilt__sff3E)}
+            gyroscope={true}
+          >
+            <Button
+              className={classNames("__wab_instance", sty.button___7L2Ux)}
+              color={"yellow"}
+              link={"/"}
             >
-              {"hide account on search"}
-            </Switch>
+              {"logout"}
+            </Button>
+          </Tilt>
+
+          <Button
+            className={classNames("__wab_instance", sty.button__ionLn)}
+            color={"green"}
+            link={"/source-code-view"}
+          >
+            {"source"}
+          </Button>
+
+          <Tilt
+            className={classNames("__wab_instance", sty.tilt___9Au5D)}
+            gyroscope={true}
+            trackOnWindow={false}
+          >
+            {null}
           </Tilt>
         </div>
       </div>
