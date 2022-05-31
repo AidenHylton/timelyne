@@ -29,9 +29,12 @@ export const PlasmicHomepage__VariantProps = new Array()
 
 export const PlasmicHomepage__ArgProps = new Array()
 
+export const defaultHomepage__Args = {}
+
 function PlasmicHomepage__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultHomepage__Args, props.args)
+  const $props = args
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_2NLjRmJv2LDoH(),
   })

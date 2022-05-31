@@ -36,9 +36,12 @@ export const PlasmicSwitch__ArgProps = new Array(
   "aria-labelledby"
 )
 
+export const defaultSwitch__Args = {}
+
 function PlasmicSwitch__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultSwitch__Args, props.args)
+  const $props = args
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
       isTextInput: false,

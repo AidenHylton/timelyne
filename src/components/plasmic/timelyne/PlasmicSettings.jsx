@@ -25,9 +25,12 @@ export const PlasmicSettings__VariantProps = new Array()
 
 export const PlasmicSettings__ArgProps = new Array()
 
+export const defaultSettings__Args = {}
+
 function PlasmicSettings__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultSettings__Args, props.args)
+  const $props = args
   return (
     <React.Fragment>
       <style>{`

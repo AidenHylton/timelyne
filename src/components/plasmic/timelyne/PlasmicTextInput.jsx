@@ -42,9 +42,14 @@ export const PlasmicTextInput__ArgProps = new Array(
   "aria-labelledby"
 )
 
+export const defaultTextInput__Args = {
+  placeholder: "Enter something…",
+}
+
 function PlasmicTextInput__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultTextInput__Args, props.args)
+  const $props = args
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
       isTextInput: false,

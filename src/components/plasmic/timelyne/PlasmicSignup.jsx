@@ -29,9 +29,12 @@ export const PlasmicSignup__VariantProps = new Array()
 
 export const PlasmicSignup__ArgProps = new Array()
 
+export const defaultSignup__Args = {}
+
 function PlasmicSignup__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultSignup__Args, props.args)
+  const $props = args
   return (
     <React.Fragment>
       <style>{`

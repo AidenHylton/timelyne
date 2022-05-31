@@ -40,9 +40,12 @@ export const PlasmicCheckbox__ArgProps = new Array(
   "aria-labelledby"
 )
 
+export const defaultCheckbox__Args = {}
+
 function PlasmicCheckbox__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultCheckbox__Args, props.args)
+  const $props = args
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
       isTextInput: false,

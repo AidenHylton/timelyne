@@ -28,9 +28,12 @@ export const PlasmicLogin__VariantProps = new Array()
 
 export const PlasmicLogin__ArgProps = new Array()
 
+export const defaultLogin__Args = {}
+
 function PlasmicLogin__RenderFunc(props) {
-  const { variants, args, overrides, forNode } = props
-  const $props = props.args
+  const { variants, overrides, forNode } = props
+  const args = Object.assign({}, defaultLogin__Args, props.args)
+  const $props = args
   return (
     <React.Fragment>
       <style>{`
