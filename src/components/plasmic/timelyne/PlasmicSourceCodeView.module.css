@@ -17,6 +17,13 @@
   max-width: 100%;
   position: relative;
   margin-right: 258px;
+  margin-top: 82px;
+}
+@media (min-width: 768px) {
+  .button__gXlPn:global(.__wab_instance) {
+    margin-top: 49px;
+    margin-right: 1279px;
+  }
 }
 .svg__yDt5P {
   position: relative;
@@ -30,7 +37,7 @@
   width: 1em;
   height: 1em;
 }
-.text {
+.text__tj3U {
   position: relative;
   width: 100%;
   height: auto;
@@ -38,6 +45,13 @@
   margin-bottom: 0px;
   margin-top: 71px;
   padding-bottom: 0px;
+  min-width: 0;
+}
+.text___0Qx6C {
+  position: relative;
+  width: 100%;
+  height: auto;
+  max-width: 800px;
   min-width: 0;
 }
 .button___0EUty:global(.__wab_instance) {
@@ -53,9 +67,6 @@
   width: 1em;
   height: 1em;
 }
-.svg__tHHab {
-  position: relative;
-  object-fit: cover;
-  width: 1em;
-  height: 1em;
+.text__hu8Me {
+  margin-left: 3px;
 }

@@ -16,8 +16,8 @@ import {
   createPlasmicElementProxy,
   deriveRenderOpts,
 } from "@plasmicapp/react-web"
-import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
 import Button from "../../Button" // plasmic-import: Rnk6lkY_vgm/component
+import Tilt from "@plasmicpkgs/react-parallax-tilt" // plasmic-import: PfY466VIuq/codeComponent
 import "@plasmicapp/react-web/lib/plasmic.css"
 import * as projectcss from "./plasmic_timelyne.module.css" // plasmic-import: 6vWNYa83fUnb1xHLwQwj6w/projectcss
 import * as sty from "./PlasmicMyTimelyne.module.css" // plasmic-import: sZ5tR8uREH/css
@@ -74,32 +74,33 @@ function PlasmicMyTimelyne__RenderFunc(props) {
             sty.root
           )}
         >
+          {true ? (
+            <Button
+              data-plasmic-name={"button"}
+              data-plasmic-override={overrides.button}
+              className={classNames("__wab_instance", sty.button)}
+              color={"blue"}
+              link={`/settings`}
+              size={"minimal"}
+            >
+              <ReshotIconSettingsWryhdvpgjQsvgIcon
+                data-plasmic-name={"svg"}
+                data-plasmic-override={overrides.svg}
+                className={classNames(projectcss.all, sty.svg)}
+                role={"img"}
+              />
+            </Button>
+          ) : null}
+
           <Tilt
             data-plasmic-name={"tilt"}
             data-plasmic-override={overrides.tilt}
+            children={null}
             className={classNames("__wab_instance", sty.tilt)}
             gyroscope={true}
             trackOnWindow={true}
             transitionSpeed={700}
-          >
-            {true ? (
-              <Button
-                data-plasmic-name={"button"}
-                data-plasmic-override={overrides.button}
-                className={classNames("__wab_instance", sty.button)}
-                color={"blue"}
-                link={`/settings`}
-                size={"minimal"}
-              >
-                <ReshotIconSettingsWryhdvpgjQsvgIcon
-                  data-plasmic-name={"svg"}
-                  data-plasmic-override={overrides.svg}
-                  className={classNames(projectcss.all, sty.svg)}
-                  role={"img"}
-                />
-              </Button>
-            ) : null}
-          </Tilt>
+          />
         </div>
       </div>
     </React.Fragment>
@@ -107,10 +108,10 @@ function PlasmicMyTimelyne__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "tilt", "button", "svg"],
-  tilt: ["tilt", "button", "svg"],
+  root: ["root", "button", "svg", "tilt"],
   button: ["button", "svg"],
   svg: ["svg"],
+  tilt: ["tilt"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -147,9 +148,9 @@ export const PlasmicMyTimelyne = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    tilt: makeNodeComponent("tilt"),
     button: makeNodeComponent("button"),
     svg: makeNodeComponent("svg"),
+    tilt: makeNodeComponent("tilt"),
     // Metadata about props expected for PlasmicMyTimelyne
     internalVariantProps: PlasmicMyTimelyne__VariantProps,
     internalArgProps: PlasmicMyTimelyne__ArgProps,

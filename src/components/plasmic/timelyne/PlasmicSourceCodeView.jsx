@@ -89,24 +89,43 @@ function PlasmicSourceCodeView__RenderFunc(props) {
           </Tilt>
 
           <div
-            data-plasmic-name={"text"}
-            data-plasmic-override={overrides.text}
             className={classNames(
               projectcss.all,
               projectcss.__wab_text,
-              sty.text
+              sty.text__tj3U
             )}
           >
             {"check out the source code of this app"}
           </div>
 
+          <div
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text___0Qx6C
+            )}
+          >
+            {
+              "to view this you need to be on a computer than press and hold the left mouse button then drag the link onto a new tab."
+            }
+          </div>
+
           <Button
             className={classNames("__wab_instance", sty.button___0EUty)}
             color={"softGreen"}
+            endIcon={null}
             link={"https://github.com/AidenHylton/timelyne"}
             showEndIcon={true}
           >
-            {"view code"}
+            <div
+              className={classNames(
+                projectcss.all,
+                projectcss.__wab_text,
+                sty.text__hu8Me
+              )}
+            >
+              {"view code"}
+            </div>
           </Button>
         </div>
       </div>
@@ -115,9 +134,8 @@ function PlasmicSourceCodeView__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "tilt", "text"],
+  root: ["root", "tilt"],
   tilt: ["tilt"],
-  text: ["text"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -155,7 +173,6 @@ export const PlasmicSourceCodeView = Object.assign(
   {
     // Helper components rendering sub-elements
     tilt: makeNodeComponent("tilt"),
-    text: makeNodeComponent("text"),
     // Metadata about props expected for PlasmicSourceCodeView
     internalVariantProps: PlasmicSourceCodeView__VariantProps,
     internalArgProps: PlasmicSourceCodeView__ArgProps,

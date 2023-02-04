@@ -64,8 +64,8 @@ function PlasmicLogin__RenderFunc(props) {
       <div className={projectcss.plasmic_page_wrapper}>
         <p.Stack
           as={"div"}
-          data-plasmic-name={"root"}
-          data-plasmic-override={overrides.root}
+          data-plasmic-name={"myTimelyne"}
+          data-plasmic-override={overrides.myTimelyne}
           data-plasmic-root={true}
           data-plasmic-for-node={forNode}
           hasGap={true}
@@ -75,7 +75,7 @@ function PlasmicLogin__RenderFunc(props) {
             projectcss.plasmic_default_styles,
             projectcss.plasmic_mixins,
             projectcss.plasmic_tokens,
-            sty.root
+            sty.myTimelyne
           )}
         >
           <div
@@ -178,6 +178,7 @@ function PlasmicLogin__RenderFunc(props) {
                           sty.link
                         )}
                         component={Link}
+                        href={`/my-timelyne`}
                         platform={"gatsby"}
                       >
                         {false ? (
@@ -234,8 +235,8 @@ function PlasmicLogin__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: [
-    "root",
+  myTimelyne: [
+    "myTimelyne",
     "mainSection",
     "mainSection2",
     "columns",
@@ -300,7 +301,7 @@ function makeNodeComponent(nodeName) {
       forNode: nodeName,
     })
   }
-  if (nodeName === "root") {
+  if (nodeName === "myTimelyne") {
     func.displayName = "PlasmicLogin"
   } else {
     func.displayName = `PlasmicLogin.${nodeName}`
@@ -310,7 +311,7 @@ function makeNodeComponent(nodeName) {
 
 export const PlasmicLogin = Object.assign(
   // Top-level PlasmicLogin renders the root element
-  makeNodeComponent("root"),
+  makeNodeComponent("myTimelyne"),
   {
     // Helper components rendering sub-elements
     mainSection: makeNodeComponent("mainSection"),

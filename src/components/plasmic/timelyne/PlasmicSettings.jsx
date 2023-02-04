@@ -81,6 +81,18 @@ function PlasmicSettings__RenderFunc(props) {
             role={"img"}
           />
 
+          <div
+            data-plasmic-name={"text"}
+            data-plasmic-override={overrides.text}
+            className={classNames(
+              projectcss.all,
+              projectcss.__wab_text,
+              sty.text
+            )}
+          >
+            {"setings"}
+          </div>
+
           <Tilt
             className={classNames("__wab_instance", sty.tilt__p7BdS)}
             gyroscope={true}
@@ -112,7 +124,7 @@ function PlasmicSettings__RenderFunc(props) {
             color={"green"}
             link={`/source-code-view`}
           >
-            {"source"}
+            {"source code"}
           </Button>
 
           <Tilt
@@ -128,8 +140,9 @@ function PlasmicSettings__RenderFunc(props) {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "svg"],
+  root: ["root", "svg", "text"],
   svg: ["svg"],
+  text: ["text"],
 }
 
 function makeNodeComponent(nodeName) {
@@ -167,6 +180,7 @@ export const PlasmicSettings = Object.assign(
   {
     // Helper components rendering sub-elements
     svg: makeNodeComponent("svg"),
+    text: makeNodeComponent("text"),
     // Metadata about props expected for PlasmicSettings
     internalVariantProps: PlasmicSettings__VariantProps,
     internalArgProps: PlasmicSettings__ArgProps,

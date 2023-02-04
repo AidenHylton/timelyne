@@ -1,4 +1,4 @@
-.root {
+.myTimelyne {
   flex-direction: column;
   display: flex;
   position: relative;
@@ -9,7 +9,7 @@
   min-height: 0;
   padding: 0em 0px;
 }
-.root > :global(.__wab_flex-container) {
+.myTimelyne > :global(.__wab_flex-container) {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
@@ -18,20 +18,24 @@
   margin-top: calc(0px - 0px);
   height: calc(100% + 0px);
 }
-.root > :global(.__wab_flex-container) > *,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
-.root > :global(.__wab_flex-container) > picture > img,
-.root > :global(.__wab_flex-container) > :global(.__wab_slot) > picture > img {
+.myTimelyne > :global(.__wab_flex-container) > *,
+.myTimelyne > :global(.__wab_flex-container) > :global(.__wab_slot) > *,
+.myTimelyne > :global(.__wab_flex-container) > picture > img,
+.myTimelyne
+  > :global(.__wab_flex-container)
+  > :global(.__wab_slot)
+  > picture
+  > img {
   margin-top: 0px;
 }
 @media (min-width: 768px) {
-  .root {
+  .myTimelyne {
     width: 100%;
     min-width: 0;
   }
 }
 @media (min-width: 768px) {
-  .root > :global(.__wab_flex-container) {
+  .myTimelyne > :global(.__wab_flex-container) {
     min-width: 0;
   }
 }
@@ -189,7 +193,7 @@
   max-width: 100%;
   position: relative;
   height: 47px;
-  margin: 0px 0px 1em;
+  margin: 0px 234px 1em 0px;
 }
 .svg__etNZt {
   position: relative;
@@ -232,7 +236,7 @@
   max-width: 100%;
   position: relative;
   height: 47px;
-  margin: 0px 0px 1em;
+  margin: 0px 242px 1em 0px;
 }
 .svg__eH9FS {
   position: relative;
