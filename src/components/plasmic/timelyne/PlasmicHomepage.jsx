@@ -10,6 +10,7 @@
 // Component: X73VYgl5Ildg
 import * as React from "react"
 import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import {
   hasVariant,
   classNames,
@@ -29,12 +30,30 @@ export const PlasmicHomepage__VariantProps = new Array()
 
 export const PlasmicHomepage__ArgProps = new Array()
 
-export const defaultHomepage__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
+
+export function Head() {
+  return <></>
+}
 
 function PlasmicHomepage__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultHomepage__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const [$queries, setDollarQueries] = React.useState({})
   const globalVariants = ensureGlobalVariants({
     screen: useScreenVariants_2NLjRmJv2LDoH(),
   })
@@ -67,7 +86,7 @@ function PlasmicHomepage__RenderFunc(props) {
           <Tilt className={classNames("__wab_instance", sty.tilt___1ReQ2)}>
             <Button
               className={classNames("__wab_instance", sty.button__rw3B)}
-              link={"/login"}
+              link={`/login`}
             >
               <div
                 data-plasmic-name={"text"}
@@ -81,57 +100,64 @@ function PlasmicHomepage__RenderFunc(props) {
                 {hasVariant(globalVariants, "screen", "desktopOnly") ? (
                   <React.Fragment>
                     <React.Fragment>{""}</React.Fragment>
-                    <h2
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h2,
-                        projectcss.__wab_text,
-                        sty.h2__lYxio
-                      )}
-                    >
-                      {"login to timelyne"}
-                    </h2>
+                    {
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__lYxio
+                        )}
+                      >
+                        {"login to timelyne"}
+                      </h2>
+                    }
+
                     <React.Fragment>{""}</React.Fragment>
                   </React.Fragment>
                 ) : (
                   <React.Fragment>
                     <React.Fragment>{""}</React.Fragment>
-                    <h2
-                      className={classNames(
-                        projectcss.all,
-                        projectcss.h2,
-                        projectcss.__wab_text,
-                        sty.h2__xk15M
-                      )}
-                    >
-                      <React.Fragment>
-                        <React.Fragment>{""}</React.Fragment>
-                        <h4
-                          data-plasmic-name={"h4"}
-                          data-plasmic-override={overrides.h4}
-                          className={classNames(
-                            projectcss.all,
-                            projectcss.h4,
-                            projectcss.__wab_text,
-                            sty.h4
-                          )}
-                        >
-                          <React.Fragment>
-                            <React.Fragment>{""}</React.Fragment>
-                            <span
-                              className={
-                                "plasmic_default__all plasmic_default__span"
-                              }
-                              style={{ color: "#0093FD" }}
+                    {
+                      <h2
+                        className={classNames(
+                          projectcss.all,
+                          projectcss.h2,
+                          projectcss.__wab_text,
+                          sty.h2__xk15M
+                        )}
+                      >
+                        <React.Fragment>
+                          <React.Fragment>{""}</React.Fragment>
+                          {
+                            <h4
+                              data-plasmic-name={"h4"}
+                              data-plasmic-override={overrides.h4}
+                              className={classNames(
+                                projectcss.all,
+                                projectcss.h4,
+                                projectcss.__wab_text,
+                                sty.h4
+                              )}
                             >
-                              {"login to timelyne"}
-                            </span>
-                            <React.Fragment>{""}</React.Fragment>
-                          </React.Fragment>
-                        </h4>
-                        <React.Fragment>{""}</React.Fragment>
-                      </React.Fragment>
-                    </h2>
+                              <React.Fragment>
+                                <span
+                                  className={
+                                    "plasmic_default__all plasmic_default__span"
+                                  }
+                                  style={{ color: "#0093FD" }}
+                                >
+                                  {"login to timelyne"}
+                                </span>
+                              </React.Fragment>
+                            </h4>
+                          }
+
+                          <React.Fragment>{""}</React.Fragment>
+                        </React.Fragment>
+                      </h2>
+                    }
+
                     <React.Fragment>{""}</React.Fragment>
                   </React.Fragment>
                 )}
@@ -142,7 +168,7 @@ function PlasmicHomepage__RenderFunc(props) {
           <Tilt className={classNames("__wab_instance", sty.tilt__dWXzo)}>
             <Button
               className={classNames("__wab_instance", sty.button__snEIc)}
-              link={"/login-or-signup"}
+              link={`/login-or-signup`}
             >
               {"sign up"}
             </Button>
@@ -182,12 +208,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicHomepage__ArgProps,
-      internalVariantPropNames: PlasmicHomepage__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicHomepage__ArgProps,
+          internalVariantPropNames: PlasmicHomepage__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicHomepage__RenderFunc({
       variants,
@@ -215,6 +246,13 @@ export const PlasmicHomepage = Object.assign(
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
     internalArgProps: PlasmicHomepage__ArgProps,
+    // Page metadata
+    pageMetadata: {
+      title: "",
+      description: "",
+      ogImageSrc: "",
+      canonical: "",
+    },
   }
 )
 

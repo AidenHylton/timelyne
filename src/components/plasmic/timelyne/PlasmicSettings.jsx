@@ -9,6 +9,8 @@
 // Plasmic Project: 6vWNYa83fUnb1xHLwQwj6w
 // Component: 5qSewSMVf0
 import * as React from "react"
+import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import {
   classNames,
   createPlasmicElementProxy,
@@ -25,12 +27,30 @@ export const PlasmicSettings__VariantProps = new Array()
 
 export const PlasmicSettings__ArgProps = new Array()
 
-export const defaultSettings__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
+
+export function Head() {
+  return <></>
+}
 
 function PlasmicSettings__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultSettings__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const [$queries, setDollarQueries] = React.useState({})
   return (
     <React.Fragment>
       <style>{`
@@ -68,7 +88,7 @@ function PlasmicSettings__RenderFunc(props) {
             <Button
               className={classNames("__wab_instance", sty.button__uvac)}
               color={"red"}
-              link={"/my-timelyne"}
+              link={`/my-timelyne`}
             >
               {"back"}
             </Button>
@@ -81,7 +101,7 @@ function PlasmicSettings__RenderFunc(props) {
             <Button
               className={classNames("__wab_instance", sty.button___7L2Ux)}
               color={"yellow"}
-              link={"/"}
+              link={`/`}
             >
               {"logout"}
             </Button>
@@ -90,18 +110,17 @@ function PlasmicSettings__RenderFunc(props) {
           <Button
             className={classNames("__wab_instance", sty.button__ionLn)}
             color={"green"}
-            link={"/source-code-view"}
+            link={`/source-code-view`}
           >
             {"source"}
           </Button>
 
           <Tilt
+            children={null}
             className={classNames("__wab_instance", sty.tilt___9Au5D)}
             gyroscope={true}
             trackOnWindow={false}
-          >
-            {null}
-          </Tilt>
+          />
         </div>
       </div>
     </React.Fragment>
@@ -115,12 +134,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicSettings__ArgProps,
-      internalVariantPropNames: PlasmicSettings__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicSettings__ArgProps,
+          internalVariantPropNames: PlasmicSettings__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicSettings__RenderFunc({
       variants,
@@ -146,6 +170,13 @@ export const PlasmicSettings = Object.assign(
     // Metadata about props expected for PlasmicSettings
     internalVariantProps: PlasmicSettings__VariantProps,
     internalArgProps: PlasmicSettings__ArgProps,
+    // Page metadata
+    pageMetadata: {
+      title: "",
+      description: "",
+      ogImageSrc: "",
+      canonical: "",
+    },
   }
 )
 

@@ -11,6 +11,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import {
   classNames,
   createPlasmicElementProxy,
@@ -29,12 +30,30 @@ export const PlasmicSignup__VariantProps = new Array()
 
 export const PlasmicSignup__ArgProps = new Array()
 
-export const defaultSignup__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
+
+export function Head() {
+  return <></>
+}
 
 function PlasmicSignup__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultSignup__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const [$queries, setDollarQueries] = React.useState({})
   return (
     <React.Fragment>
       <style>{`
@@ -262,7 +281,7 @@ function PlasmicSignup__RenderFunc(props) {
                       data-plasmic-name={"button"}
                       data-plasmic-override={overrides.button}
                       className={classNames("__wab_instance", sty.button)}
-                      link={"/"}
+                      link={`/`}
                     >
                       {"cancel"}
                     </Button>
@@ -339,12 +358,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicSignup__ArgProps,
-      internalVariantPropNames: PlasmicSignup__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicSignup__ArgProps,
+          internalVariantPropNames: PlasmicSignup__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicSignup__RenderFunc({
       variants,
@@ -379,6 +403,13 @@ export const PlasmicSignup = Object.assign(
     // Metadata about props expected for PlasmicSignup
     internalVariantProps: PlasmicSignup__VariantProps,
     internalArgProps: PlasmicSignup__ArgProps,
+    // Page metadata
+    pageMetadata: {
+      title: "",
+      description: "",
+      ogImageSrc: "",
+      canonical: "",
+    },
   }
 )
 

@@ -10,6 +10,7 @@
 // Component: aMBO0vTjkqh
 import * as React from "react"
 import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import * as pp from "@plasmicapp/react-web"
 import {
   hasVariant,
@@ -36,12 +37,56 @@ export const PlasmicSwitch__ArgProps = new Array(
   "aria-labelledby"
 )
 
-export const defaultSwitch__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
 
 function PlasmicSwitch__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultSwitch__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "noLabel",
+        type: "private",
+        variableType: "variant",
+        initFunc: true ? ($props, $state, $ctx) => $props.noLabel : undefined,
+      },
+
+      {
+        path: "isDisabled",
+        type: "private",
+        variableType: "variant",
+        initFunc: true
+          ? ($props, $state, $ctx) => $props.isDisabled
+          : undefined,
+      },
+
+      {
+        path: "isChecked",
+        type: "private",
+        variableType: "variant",
+        initFunc: true ? ($props, $state, $ctx) => $props.isChecked : undefined,
+      },
+    ],
+
+    [$props, $ctx]
+  )
+
+  const $state = p.useDollarState(stateSpecs, $props, $ctx)
+  const [$queries, setDollarQueries] = React.useState({})
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
       isTextInput: false,
@@ -66,14 +111,9 @@ function PlasmicSwitch__RenderFunc(props) {
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-          [sty.rootisChecked]: hasVariant(variants, "isChecked", "isChecked"),
-          [sty.rootisDisabled]: hasVariant(
-            variants,
-            "isDisabled",
-            "isDisabled"
-          ),
-
-          [sty.rootnoLabel]: hasVariant(variants, "noLabel", "noLabel"),
+          [sty.rootisChecked]: hasVariant($state, "isChecked", "isChecked"),
+          [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
+          [sty.rootnoLabel]: hasVariant($state, "noLabel", "noLabel"),
         }
       )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
@@ -83,9 +123,9 @@ function PlasmicSwitch__RenderFunc(props) {
         data-plasmic-override={overrides.toggle}
         className={classNames(projectcss.all, sty.toggle, {
           [sty.toggle___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-          [sty.toggleisChecked]: hasVariant(variants, "isChecked", "isChecked"),
+          [sty.toggleisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.toggleisDisabled]: hasVariant(
-            variants,
+            $state,
             "isDisabled",
             "isDisabled"
           ),
@@ -96,14 +136,9 @@ function PlasmicSwitch__RenderFunc(props) {
           data-plasmic-override={overrides.track}
           className={classNames(projectcss.all, sty.track, {
             [sty.track___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-            [sty.trackisChecked]: hasVariant(
-              variants,
-              "isChecked",
-              "isChecked"
-            ),
-
+            [sty.trackisChecked]: hasVariant($state, "isChecked", "isChecked"),
             [sty.trackisDisabled]: hasVariant(
-              variants,
+              $state,
               "isDisabled",
               "isDisabled"
             ),
@@ -116,7 +151,7 @@ function PlasmicSwitch__RenderFunc(props) {
               [sty.thumb___focusVisibleWithin]:
                 triggers.focusVisibleWithin_root,
               [sty.thumbisChecked]: hasVariant(
-                variants,
+                $state,
                 "isChecked",
                 "isChecked"
               ),
@@ -125,7 +160,7 @@ function PlasmicSwitch__RenderFunc(props) {
         </div>
       </div>
 
-      {(hasVariant(variants, "noLabel", "noLabel") ? false : true) ? (
+      {(hasVariant($state, "noLabel", "noLabel") ? false : true) ? (
         <div
           data-plasmic-name={"labelContainer"}
           data-plasmic-override={overrides.labelContainer}
@@ -133,7 +168,7 @@ function PlasmicSwitch__RenderFunc(props) {
             [sty.labelContainer___focusVisibleWithin]:
               triggers.focusVisibleWithin_root,
             [sty.labelContainernoLabel]: hasVariant(
-              variants,
+              $state,
               "noLabel",
               "noLabel"
             ),
@@ -146,13 +181,13 @@ function PlasmicSwitch__RenderFunc(props) {
               [sty.slotTargetChildren___focusVisibleWithin]:
                 triggers.focusVisibleWithin_root,
               [sty.slotTargetChildrenisChecked]: hasVariant(
-                variants,
+                $state,
                 "isChecked",
                 "isChecked"
               ),
 
               [sty.slotTargetChildrennoLabel]: hasVariant(
-                variants,
+                $state,
                 "noLabel",
                 "noLabel"
               ),
@@ -196,12 +231,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicSwitch__ArgProps,
-      internalVariantPropNames: PlasmicSwitch__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicSwitch__ArgProps,
+          internalVariantPropNames: PlasmicSwitch__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicSwitch__RenderFunc({
       variants,

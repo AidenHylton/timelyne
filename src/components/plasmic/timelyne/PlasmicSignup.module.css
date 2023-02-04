@@ -213,7 +213,7 @@
 .img > picture > img {
   object-fit: cover;
 }
-.img > .__wab_img-spacer > img {
+.img > :global(.__wab_img-spacer) > img {
   object-fit: cover;
 }
 .h2 {
@@ -400,6 +400,9 @@
   display: flex;
   cursor: pointer;
   align-self: flex-start;
+  -webkit-transition-property: all;
+  -webkit-transition-timing-function: ease-out;
+  -webkit-transition-duration: 0.5s;
   border-radius: 300px;
   padding: 13px 24px;
   border: 1px solid transparent;

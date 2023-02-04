@@ -11,6 +11,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import {
   classNames,
   createPlasmicElementProxy,
@@ -28,12 +29,30 @@ export const PlasmicLogin__VariantProps = new Array()
 
 export const PlasmicLogin__ArgProps = new Array()
 
-export const defaultLogin__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
+
+export function Head() {
+  return <></>
+}
 
 function PlasmicLogin__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultLogin__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const [$queries, setDollarQueries] = React.useState({})
   return (
     <React.Fragment>
       <style>{`
@@ -199,7 +218,7 @@ function PlasmicLogin__RenderFunc(props) {
                       data-plasmic-name={"button"}
                       data-plasmic-override={overrides.button}
                       className={classNames("__wab_instance", sty.button)}
-                      link={"/"}
+                      link={`/`}
                     >
                       {"cancel"}
                     </Button>
@@ -262,12 +281,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicLogin__ArgProps,
-      internalVariantPropNames: PlasmicLogin__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicLogin__ArgProps,
+          internalVariantPropNames: PlasmicLogin__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicLogin__RenderFunc({
       variants,
@@ -301,6 +325,13 @@ export const PlasmicLogin = Object.assign(
     // Metadata about props expected for PlasmicLogin
     internalVariantProps: PlasmicLogin__VariantProps,
     internalArgProps: PlasmicLogin__ArgProps,
+    // Page metadata
+    pageMetadata: {
+      title: "",
+      description: "",
+      ogImageSrc: "",
+      canonical: "",
+    },
   }
 )
 

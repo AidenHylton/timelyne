@@ -9,6 +9,8 @@
 // Plasmic Project: 6vWNYa83fUnb1xHLwQwj6w
 // Component: sZ5tR8uREH
 import * as React from "react"
+import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import {
   classNames,
   createPlasmicElementProxy,
@@ -25,12 +27,30 @@ export const PlasmicMyTimelyne__VariantProps = new Array()
 
 export const PlasmicMyTimelyne__ArgProps = new Array()
 
-export const defaultMyTimelyne__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
+
+export function Head() {
+  return <></>
+}
 
 function PlasmicMyTimelyne__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultMyTimelyne__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const [$queries, setDollarQueries] = React.useState({})
   return (
     <React.Fragment>
       <style>{`
@@ -68,7 +88,7 @@ function PlasmicMyTimelyne__RenderFunc(props) {
                 data-plasmic-override={overrides.button}
                 className={classNames("__wab_instance", sty.button)}
                 color={"blue"}
-                link={"/settings"}
+                link={`/settings`}
                 size={"minimal"}
               >
                 <ReshotIconSettingsWryhdvpgjQsvgIcon
@@ -95,12 +115,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicMyTimelyne__ArgProps,
-      internalVariantPropNames: PlasmicMyTimelyne__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicMyTimelyne__ArgProps,
+          internalVariantPropNames: PlasmicMyTimelyne__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicMyTimelyne__RenderFunc({
       variants,
@@ -128,6 +153,13 @@ export const PlasmicMyTimelyne = Object.assign(
     // Metadata about props expected for PlasmicMyTimelyne
     internalVariantProps: PlasmicMyTimelyne__VariantProps,
     internalArgProps: PlasmicMyTimelyne__ArgProps,
+    // Page metadata
+    pageMetadata: {
+      title: "",
+      description: "",
+      ogImageSrc: "",
+      canonical: "",
+    },
   }
 )
 

@@ -5,9 +5,9 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "@plasmicapp/cli": "^0.1.178",
+    "@plasmicapp/cli": "^0.1.208",
     "@plasmicapp/host": "^1.0.45",
-    "@plasmicapp/react-web": "^0.2.97",
+    "@plasmicapp/react-web": "^0.2.153",
     "@plasmicpkgs/antd": "^0.0.54",
     "@plasmicpkgs/react-awesome-reveal": "^3.8.45",
     "@plasmicpkgs/react-parallax-tilt": "^0.0.43",

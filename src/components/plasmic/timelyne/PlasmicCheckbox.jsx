@@ -10,6 +10,7 @@
 // Component: PDvHQgVe60q
 import * as React from "react"
 import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import * as pp from "@plasmicapp/react-web"
 import {
   hasVariant,
@@ -40,12 +41,65 @@ export const PlasmicCheckbox__ArgProps = new Array(
   "aria-labelledby"
 )
 
-export const defaultCheckbox__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
 
 function PlasmicCheckbox__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultCheckbox__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const stateSpecs = React.useMemo(
+    () => [
+      {
+        path: "noLabel",
+        type: "private",
+        variableType: "variant",
+        initFunc: true ? ($props, $state, $ctx) => $props.noLabel : undefined,
+      },
+
+      {
+        path: "isDisabled",
+        type: "private",
+        variableType: "variant",
+        initFunc: true
+          ? ($props, $state, $ctx) => $props.isDisabled
+          : undefined,
+      },
+
+      {
+        path: "isChecked",
+        type: "private",
+        variableType: "variant",
+        initFunc: true ? ($props, $state, $ctx) => $props.isChecked : undefined,
+      },
+
+      {
+        path: "isIndeterminate",
+        type: "private",
+        variableType: "variant",
+        initFunc: true
+          ? ($props, $state, $ctx) => $props.isIndeterminate
+          : undefined,
+      },
+    ],
+
+    [$props, $ctx]
+  )
+
+  const $state = p.useDollarState(stateSpecs, $props, $ctx)
+  const [$queries, setDollarQueries] = React.useState({})
   const [isRootFocusVisibleWithin, triggerRootFocusVisibleWithinProps] =
     useTrigger("useFocusVisibleWithin", {
       isTextInput: false,
@@ -72,20 +126,15 @@ function PlasmicCheckbox__RenderFunc(props) {
         sty.root,
         {
           [sty.root___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-          [sty.rootisChecked]: hasVariant(variants, "isChecked", "isChecked"),
-          [sty.rootisDisabled]: hasVariant(
-            variants,
-            "isDisabled",
-            "isDisabled"
-          ),
-
+          [sty.rootisChecked]: hasVariant($state, "isChecked", "isChecked"),
+          [sty.rootisDisabled]: hasVariant($state, "isDisabled", "isDisabled"),
           [sty.rootisIndeterminate]: hasVariant(
-            variants,
+            $state,
             "isIndeterminate",
             "isIndeterminate"
           ),
 
-          [sty.rootnoLabel]: hasVariant(variants, "noLabel", "noLabel"),
+          [sty.rootnoLabel]: hasVariant($state, "noLabel", "noLabel"),
         }
       )}
       data-plasmic-trigger-props={[triggerRootFocusVisibleWithinProps]}
@@ -95,31 +144,26 @@ function PlasmicCheckbox__RenderFunc(props) {
         data-plasmic-override={overrides.freeBox}
         className={classNames(projectcss.all, sty.freeBox, {
           [sty.freeBox___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-          [sty.freeBoxisChecked]: hasVariant(
-            variants,
-            "isChecked",
-            "isChecked"
-          ),
-
+          [sty.freeBoxisChecked]: hasVariant($state, "isChecked", "isChecked"),
           [sty.freeBoxisDisabled]: hasVariant(
-            variants,
+            $state,
             "isDisabled",
             "isDisabled"
           ),
 
           [sty.freeBoxisIndeterminate]: hasVariant(
-            variants,
+            $state,
             "isIndeterminate",
             "isIndeterminate"
           ),
 
-          [sty.freeBoxnoLabel]: hasVariant(variants, "noLabel", "noLabel"),
+          [sty.freeBoxnoLabel]: hasVariant($state, "noLabel", "noLabel"),
         })}
       >
         {(
-          hasVariant(variants, "isIndeterminate", "isIndeterminate")
+          hasVariant($state, "isIndeterminate", "isIndeterminate")
             ? true
-            : hasVariant(variants, "isChecked", "isChecked")
+            : hasVariant($state, "isChecked", "isChecked")
             ? true
             : true
         ) ? (
@@ -127,40 +171,35 @@ function PlasmicCheckbox__RenderFunc(props) {
             data-plasmic-name={"svg"}
             data-plasmic-override={overrides.svg}
             PlasmicIconType={
-              hasVariant(variants, "isIndeterminate", "isIndeterminate")
+              hasVariant($state, "isIndeterminate", "isIndeterminate")
                 ? SquareMinussvgIcon
-                : hasVariant(variants, "isChecked", "isChecked")
+                : hasVariant($state, "isChecked", "isChecked")
                 ? SquareCheckFilledsvgIcon
                 : SquaresvgIcon
             }
             className={classNames(projectcss.all, sty.svg, {
               [sty.svg___focusVisibleWithin]: triggers.focusVisibleWithin_root,
-              [sty.svgisChecked]: hasVariant(
-                variants,
-                "isChecked",
-                "isChecked"
-              ),
-
+              [sty.svgisChecked]: hasVariant($state, "isChecked", "isChecked"),
               [sty.svgisDisabled]: hasVariant(
-                variants,
+                $state,
                 "isDisabled",
                 "isDisabled"
               ),
 
               [sty.svgisIndeterminate]: hasVariant(
-                variants,
+                $state,
                 "isIndeterminate",
                 "isIndeterminate"
               ),
 
-              [sty.svgnoLabel]: hasVariant(variants, "noLabel", "noLabel"),
+              [sty.svgnoLabel]: hasVariant($state, "noLabel", "noLabel"),
             })}
             role={"img"}
           />
         ) : null}
       </div>
 
-      {(hasVariant(variants, "noLabel", "noLabel") ? false : true) ? (
+      {(hasVariant($state, "noLabel", "noLabel") ? false : true) ? (
         <div
           data-plasmic-name={"labelContainer"}
           data-plasmic-override={overrides.labelContainer}
@@ -168,13 +207,13 @@ function PlasmicCheckbox__RenderFunc(props) {
             [sty.labelContainer___focusVisibleWithin]:
               triggers.focusVisibleWithin_root,
             [sty.labelContainerisDisabled]: hasVariant(
-              variants,
+              $state,
               "isDisabled",
               "isDisabled"
             ),
 
             [sty.labelContainernoLabel]: hasVariant(
-              variants,
+              $state,
               "noLabel",
               "noLabel"
             ),
@@ -187,25 +226,25 @@ function PlasmicCheckbox__RenderFunc(props) {
               [sty.slotTargetChildren___focusVisibleWithin]:
                 triggers.focusVisibleWithin_root,
               [sty.slotTargetChildrenisChecked]: hasVariant(
-                variants,
+                $state,
                 "isChecked",
                 "isChecked"
               ),
 
               [sty.slotTargetChildrenisDisabled]: hasVariant(
-                variants,
+                $state,
                 "isDisabled",
                 "isDisabled"
               ),
 
               [sty.slotTargetChildrenisIndeterminate]: hasVariant(
-                variants,
+                $state,
                 "isIndeterminate",
                 "isIndeterminate"
               ),
 
               [sty.slotTargetChildrennoLabel]: hasVariant(
-                variants,
+                $state,
                 "noLabel",
                 "noLabel"
               ),
@@ -253,12 +292,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicCheckbox__ArgProps,
-      internalVariantPropNames: PlasmicCheckbox__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicCheckbox__ArgProps,
+          internalVariantPropNames: PlasmicCheckbox__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicCheckbox__RenderFunc({
       variants,

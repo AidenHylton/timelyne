@@ -9,6 +9,8 @@
 // Plasmic Project: 6vWNYa83fUnb1xHLwQwj6w
 // Component: Cw2jS9gr3z
 import * as React from "react"
+import * as p from "@plasmicapp/react-web"
+import * as ph from "@plasmicapp/host"
 import {
   classNames,
   createPlasmicElementProxy,
@@ -24,12 +26,30 @@ export const PlasmicSourceCodeView__VariantProps = new Array()
 
 export const PlasmicSourceCodeView__ArgProps = new Array()
 
-export const defaultSourceCodeView__Args = {}
+const __wrapUserFunction =
+  globalThis.__PlasmicWrapUserFunction ?? ((loc, fn) => fn())
+
+const __wrapUserPromise =
+  globalThis.__PlasmicWrapUserPromise ??
+  (async (loc, promise) => {
+    return await promise
+  })
+
+export function Head() {
+  return <></>
+}
 
 function PlasmicSourceCodeView__RenderFunc(props) {
   const { variants, overrides, forNode } = props
-  const args = Object.assign({}, defaultSourceCodeView__Args, props.args)
-  const $props = args
+  const $ctx = ph.useDataEnv?.() || {}
+  const args = React.useMemo(() => Object.assign({}, props.args), [props.args])
+  const $props = {
+    ...args,
+    ...variants,
+  }
+
+  const currentUser = p.useCurrentUser?.() || {}
+  const [$queries, setDollarQueries] = React.useState({})
   return (
     <React.Fragment>
       <style>{`
@@ -62,7 +82,7 @@ function PlasmicSourceCodeView__RenderFunc(props) {
           >
             <Button
               className={classNames("__wab_instance", sty.button__gXlPn)}
-              link={"/settings"}
+              link={`/settings`}
             >
               {"back"}
             </Button>
@@ -102,12 +122,17 @@ const PlasmicDescendants = {
 
 function makeNodeComponent(nodeName) {
   const func = function (props) {
-    const { variants, args, overrides } = deriveRenderOpts(props, {
-      name: nodeName,
-      descendantNames: [...PlasmicDescendants[nodeName]],
-      internalArgPropNames: PlasmicSourceCodeView__ArgProps,
-      internalVariantPropNames: PlasmicSourceCodeView__VariantProps,
-    })
+    const { variants, args, overrides } = React.useMemo(
+      () =>
+        deriveRenderOpts(props, {
+          name: nodeName,
+          descendantNames: [...PlasmicDescendants[nodeName]],
+          internalArgPropNames: PlasmicSourceCodeView__ArgProps,
+          internalVariantPropNames: PlasmicSourceCodeView__VariantProps,
+        }),
+
+      [props, nodeName]
+    )
 
     return PlasmicSourceCodeView__RenderFunc({
       variants,
@@ -134,6 +159,13 @@ export const PlasmicSourceCodeView = Object.assign(
     // Metadata about props expected for PlasmicSourceCodeView
     internalVariantProps: PlasmicSourceCodeView__VariantProps,
     internalArgProps: PlasmicSourceCodeView__ArgProps,
+    // Page metadata
+    pageMetadata: {
+      title: "",
+      description: "",
+      ogImageSrc: "",
+      canonical: "",
+    },
   }
 )
 
